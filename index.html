@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LEGO BuildVerse</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="LEGO BuildVerse home">
+        <span class="brand-mark">B</span>
+        <span>BuildVerse</span>
+      </a>
+      <nav class="nav-links" aria-label="Page sections">
+        <a href="#scan">Scan</a>
+        <a href="#remix">Remix</a>
+        <a href="#challenge">Challenges</a>
+      </nav>
+      <button class="header-action" type="button">Join Beta</button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Physical bricks. Digital worlds. Instant remix.</p>
+          <h1 id="hero-title">LEGO BuildVerse</h1>
+          <p class="hero-text">
+            A kid-safe creator world where young builders scan real builds,
+            publish playable spaces, remix friends' ideas, and unlock new brick
+            missions.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-action" type="button" data-jump="#scan">
+              Launch the scanner
+            </button>
+            <button class="secondary-action" type="button" data-jump="#remix">
+              See remix worlds
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-stage" aria-label="Animated BuildVerse scene">
+          <div class="grid-plane"></div>
+          <div class="portal-ring"></div>
+          <div class="brick brick-red brick-xl" style="--x: 8%; --y: 18%; --r: -18deg"></div>
+          <div class="brick brick-yellow brick-lg" style="--x: 58%; --y: 10%; --r: 14deg"></div>
+          <div class="brick brick-blue brick-md" style="--x: 70%; --y: 58%; --r: -10deg"></div>
+          <div class="brick brick-green brick-sm" style="--x: 25%; --y: 68%; --r: 20deg"></div>
+          <div class="avatar-card">
+            <div class="avatar-face">
+              <span></span>
+            </div>
+            <div>
+              <strong>PixelPilot42</strong>
+              <small>Remixed 18 worlds</small>
+            </div>
+          </div>
+          <div class="world-card">
+            <span>Live world</span>
+            <strong>Dragon Skatepark Moonbase</strong>
+            <small>842 builders online</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="ticker" aria-label="BuildVerse activity">
+        <span>scan a spaceship</span>
+        <span>remix a castle</span>
+        <span>publish a mini game</span>
+        <span>join a build crew</span>
+        <span>unlock real instructions</span>
+      </section>
+
+      <section class="scan-section" id="scan" aria-labelledby="scan-title">
+        <div class="section-copy">
+          <p class="eyebrow">Scan-to-world</p>
+          <h2 id="scan-title">Your real build becomes a playable level.</h2>
+          <p>
+            Drop a physical creation on the scan pad, watch it convert into a
+            digital model, then give it rules, motion, sounds, and quests.
+          </p>
+        </div>
+        <div class="scanner-panel">
+          <div class="scan-window">
+            <div class="scan-line"></div>
+            <div class="mini-build" aria-hidden="true">
+              <div class="mini-row">
+                <span class="stud red"></span>
+                <span class="stud yellow"></span>
+                <span class="stud blue"></span>
+              </div>
+              <div class="mini-row">
+                <span class="stud green"></span>
+                <span class="stud red"></span>
+                <span class="stud yellow"></span>
+              </div>
+            </div>
+          </div>
+          <button class="scan-button" type="button">Scan build</button>
+          <p class="scan-status" aria-live="polite">Ready to digitize</p>
+        </div>
+      </section>
+
+      <section class="remix-section" id="remix" aria-labelledby="remix-title">
+        <div class="section-heading">
+          <p class="eyebrow">Creator-first</p>
+          <h2 id="remix-title">Make, remix, publish, repeat.</h2>
+        </div>
+        <div class="remix-grid">
+          <article class="feature-card red-card">
+            <span class="feature-icon">01</span>
+            <h3>Build Worlds</h3>
+            <p>Use brick logic, game tools, and silly physics to create places friends can actually play.</p>
+          </article>
+          <article class="feature-card blue-card">
+            <span class="feature-icon">02</span>
+            <h3>Remix Friends</h3>
+            <p>Fork a build, change the rules, add a boss ramp, then credit the original builder.</p>
+          </article>
+          <article class="feature-card yellow-card">
+            <span class="feature-icon">03</span>
+            <h3>Unlock Bricks</h3>
+            <p>Digital achievements open new real-world instructions and wild alternate builds.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="challenge-section" id="challenge" aria-labelledby="challenge-title">
+        <div class="challenge-board">
+          <div>
+            <p class="eyebrow">Weekly chaos challenge</p>
+            <h2 id="challenge-title">Build a submarine for a pizza wizard.</h2>
+          </div>
+          <div class="challenge-stats">
+            <span><strong>24h</strong> left</span>
+            <span><strong>9.8k</strong> remixes</span>
+            <span><strong>3</strong> featured crews</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
