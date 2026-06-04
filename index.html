@@ -3,140 +3,169 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LEGO BuildVerse</title>
+    <title>BuildVerse Brick Studio</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header" aria-label="Primary navigation">
-      <a class="brand" href="#top" aria-label="LEGO BuildVerse home">
+      <a class="brand" href="#top" aria-label="BuildVerse Brick Studio home">
         <span class="brand-mark">B</span>
         <span>BuildVerse</span>
       </a>
       <nav class="nav-links" aria-label="Page sections">
+        <a href="#builder">Builder</a>
         <a href="#scan">Scan</a>
-        <a href="#remix">Remix</a>
-        <a href="#challenge">Challenges</a>
+        <a href="#worlds">Worlds</a>
       </nav>
-      <button class="header-action" type="button">Join Beta</button>
+      <div class="palette-switcher" aria-label="Choose site palette">
+        <button class="palette-button is-active" type="button" data-palette="classic" aria-label="Classic palette" aria-pressed="true">
+          <span style="--swatch: #e52521"></span>
+          <span style="--swatch: #ffd500"></span>
+          <span style="--swatch: #0055bf"></span>
+        </button>
+        <button class="palette-button" type="button" data-palette="candy" aria-label="Candy palette" aria-pressed="false">
+          <span style="--swatch: #ff4f8b"></span>
+          <span style="--swatch: #7cf7d4"></span>
+          <span style="--swatch: #7048ff"></span>
+        </button>
+        <button class="palette-button" type="button" data-palette="arcade" aria-label="Arcade palette" aria-pressed="false">
+          <span style="--swatch: #ff6b35"></span>
+          <span style="--swatch: #18c4c7"></span>
+          <span style="--swatch: #2f2d8f"></span>
+        </button>
+        <button class="palette-button" type="button" data-palette="garden" aria-label="Garden palette" aria-pressed="false">
+          <span style="--swatch: #f0544f"></span>
+          <span style="--swatch: #f9c80e"></span>
+          <span style="--swatch: #0ead69"></span>
+        </button>
+      </div>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">Physical bricks. Digital worlds. Instant remix.</p>
-          <h1 id="hero-title">LEGO BuildVerse</h1>
+          <p class="eyebrow">Build, export, scan, decorate.</p>
+          <h1 id="hero-title">BuildVerse Brick Studio</h1>
           <p class="hero-text">
-            A kid-safe creator world where young builders scan real builds,
-            publish playable spaces, remix friends' ideas, and unlock new brick
-            missions.
+            A playful 2D brick builder for making small LEGO-inspired scenes,
+            exporting pictures, and turning finished builds into game worlds.
           </p>
           <div class="hero-actions">
-            <button class="primary-action" type="button" data-jump="#scan">
-              Launch the scanner
-            </button>
-            <button class="secondary-action" type="button" data-jump="#remix">
-              See remix worlds
-            </button>
+            <button class="primary-action" type="button" data-jump="#builder">Start building</button>
+            <button class="secondary-action" type="button" data-jump="#scan">Try the scanner</button>
           </div>
         </div>
 
-        <div class="hero-stage" aria-label="Animated BuildVerse scene">
-          <div class="grid-plane"></div>
-          <div class="portal-ring"></div>
-          <div class="brick brick-red brick-xl" style="--x: 8%; --y: 18%; --r: -18deg"></div>
-          <div class="brick brick-yellow brick-lg" style="--x: 58%; --y: 10%; --r: 14deg"></div>
-          <div class="brick brick-blue brick-md" style="--x: 70%; --y: 58%; --r: -10deg"></div>
-          <div class="brick brick-green brick-sm" style="--x: 25%; --y: 68%; --r: 20deg"></div>
-          <div class="avatar-card">
-            <div class="avatar-face">
-              <span></span>
-            </div>
+        <section class="builder-panel" id="builder" aria-labelledby="builder-title">
+          <div class="builder-head">
             <div>
-              <strong>PixelPilot42</strong>
-              <small>Remixed 18 worlds</small>
+              <p class="eyebrow">2D brick builder</p>
+              <h2 id="builder-title">Stack a picture.</h2>
+            </div>
+            <div class="builder-count" aria-live="polite">
+              <strong id="brick-count">0</strong>
+              <span>bricks</span>
             </div>
           </div>
-          <div class="world-card">
-            <span>Live world</span>
-            <strong>Dragon Skatepark Moonbase</strong>
-            <small>842 builders online</small>
+
+          <div class="builder-tools" aria-label="Brick builder tools">
+            <div class="tool-group" aria-label="Brick colors">
+              <button class="color-tool is-active" type="button" data-color="#e52521" aria-label="Red brick" aria-pressed="true"></button>
+              <button class="color-tool" type="button" data-color="#ffd500" aria-label="Yellow brick" aria-pressed="false"></button>
+              <button class="color-tool" type="button" data-color="#0055bf" aria-label="Blue brick" aria-pressed="false"></button>
+              <button class="color-tool" type="button" data-color="#237841" aria-label="Green brick" aria-pressed="false"></button>
+              <button class="color-tool" type="button" data-color="#f58220" aria-label="Orange brick" aria-pressed="false"></button>
+              <button class="color-tool" type="button" data-color="#ffffff" aria-label="White brick" aria-pressed="false"></button>
+            </div>
+            <div class="tool-group" aria-label="Brick sizes">
+              <button class="size-tool is-active" type="button" data-size="2" aria-pressed="true">2</button>
+              <button class="size-tool" type="button" data-size="3" aria-pressed="false">3</button>
+              <button class="size-tool" type="button" data-size="4" aria-pressed="false">4</button>
+            </div>
           </div>
-        </div>
+
+          <div class="builder-board" id="builder-board" aria-label="Click the baseplate cells to place bricks"></div>
+
+          <div class="builder-actions">
+            <button class="secondary-action compact-action" type="button" id="undo-build">Undo</button>
+            <button class="secondary-action compact-action" type="button" id="clear-build">Clear</button>
+            <button class="primary-action compact-action" type="button" id="export-build">Export PNG</button>
+            <a class="download-link" id="download-build" download="buildverse-brick-build.png">Download ready</a>
+          </div>
+        </section>
       </section>
 
       <section class="ticker" aria-label="BuildVerse activity">
-        <span>scan a spaceship</span>
-        <span>remix a castle</span>
-        <span>publish a mini game</span>
-        <span>join a build crew</span>
-        <span>unlock real instructions</span>
+        <span>click cells to stack</span>
+        <span>export a build</span>
+        <span>scan a model</span>
+        <span>decorate the world</span>
+        <span>remix tomorrow</span>
       </section>
 
       <section class="scan-section" id="scan" aria-labelledby="scan-title">
         <div class="section-copy">
           <p class="eyebrow">Scan-to-world</p>
-          <h2 id="scan-title">Your real build becomes a playable level.</h2>
+          <h2 id="scan-title">A real build should become a believable scene.</h2>
           <p>
-            Drop a physical creation on the scan pad, watch it convert into a
-            digital model, then give it rules, motion, sounds, and quests.
+            The scanner starts with a brick-built submarine. After scanning, it
+            maps the model into an underwater level with coral, kelp, and a
+            small pizza tower quest marker.
           </p>
         </div>
         <div class="scanner-panel">
           <div class="scan-window">
+            <div class="scene-layer bubbles"></div>
             <div class="scan-line"></div>
-            <div class="mini-build" aria-hidden="true">
-              <div class="mini-row">
-                <span class="stud red"></span>
-                <span class="stud yellow"></span>
-                <span class="stud blue"></span>
-              </div>
-              <div class="mini-row">
-                <span class="stud green"></span>
-                <span class="stud red"></span>
-                <span class="stud yellow"></span>
-              </div>
+            <div class="scan-build" aria-hidden="true">
+              <div class="sub-piece sub-body"><span></span><span></span><span></span><span></span></div>
+              <div class="sub-piece sub-top"><span></span><span></span></div>
+              <div class="sub-window"></div>
+              <div class="sub-tail"></div>
+              <div class="sub-fin"></div>
+            </div>
+            <div class="scan-decoration coral-left" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="scan-decoration coral-right" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="quest-marker" aria-hidden="true">
+              <span></span>
             </div>
           </div>
-          <button class="scan-button" type="button">Scan build</button>
-          <p class="scan-status" aria-live="polite">Ready to digitize</p>
+          <button class="scan-button" type="button">Scan submarine build</button>
+          <p class="scan-status" aria-live="polite">Ready to map the submarine</p>
         </div>
       </section>
 
-      <section class="remix-section" id="remix" aria-labelledby="remix-title">
+      <section class="worlds-section" id="worlds" aria-labelledby="worlds-title">
         <div class="section-heading">
-          <p class="eyebrow">Creator-first</p>
-          <h2 id="remix-title">Make, remix, publish, repeat.</h2>
+          <p class="eyebrow">Brick-built website pieces</p>
+          <h2 id="worlds-title">The page is decorated with builds, not just boxes.</h2>
         </div>
-        <div class="remix-grid">
-          <article class="feature-card red-card">
-            <span class="feature-icon">01</span>
-            <h3>Build Worlds</h3>
-            <p>Use brick logic, game tools, and silly physics to create places friends can actually play.</p>
+        <div class="world-grid">
+          <article class="world-card">
+            <div class="micro-build rocket" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <h3>Rocket Postcard</h3>
+            <p>Use the builder to make simple 2D art, then export it as a picture for your project.</p>
           </article>
-          <article class="feature-card blue-card">
-            <span class="feature-icon">02</span>
-            <h3>Remix Friends</h3>
-            <p>Fork a build, change the rules, add a boss ramp, then credit the original builder.</p>
+          <article class="world-card">
+            <div class="micro-build flower" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <h3>Garden Badge</h3>
+            <p>Small stacked shapes give the page a more LEGO-like language without copying official assets.</p>
           </article>
-          <article class="feature-card yellow-card">
-            <span class="feature-icon">03</span>
-            <h3>Unlock Bricks</h3>
-            <p>Digital achievements open new real-world instructions and wild alternate builds.</p>
+          <article class="world-card">
+            <div class="micro-build tower" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <h3>Quest Tower</h3>
+            <p>Builds, studs, baseplates, and product-style panels carry the visual design.</p>
           </article>
-        </div>
-      </section>
-
-      <section class="challenge-section" id="challenge" aria-labelledby="challenge-title">
-        <div class="challenge-board">
-          <div>
-            <p class="eyebrow">Weekly chaos challenge</p>
-            <h2 id="challenge-title">Build a submarine for a pizza wizard.</h2>
-          </div>
-          <div class="challenge-stats">
-            <span><strong>24h</strong> left</span>
-            <span><strong>9.8k</strong> remixes</span>
-            <span><strong>3</strong> featured crews</span>
-          </div>
         </div>
       </section>
     </main>
